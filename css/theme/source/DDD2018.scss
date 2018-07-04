@@ -1,0 +1,184 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+$controlsColor: #7faff6;
+
+$mainColor: rgb(77, 115, 174);
+$headingColor: rgb(77, 115, 174);
+
+$mainFontSize: 2.2rem;
+$mainFont: Arial,Helvetica Neue,Helvetica,sans-serif;
+$headingFont: Arial,Helvetica Neue,Helvetica,sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 400;
+$linkColor: #000;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+// Theme styles ------------------------------
+.reveal.ddd2018 {
+
+
+  /*********************************************
+   * NAVIGATION CONTROLS
+   *********************************************/
+  .controls {
+    .navigate-left,
+    .navigate-left.enabled {
+      border-right-color: $controlsColor; }
+
+    .navigate-right,
+    .navigate-right.enabled {
+      border-left-color: $controlsColor; }
+
+    .navigate-up,
+    .navigate-up.enabled {
+      border-bottom-color: $controlsColor; }
+
+    .navigate-down,
+    .navigate-down.enabled {
+      border-top-color: $controlsColor; }
+
+    .navigate-left.enabled:hover {
+      border-right-color: $controlsColor; }
+
+    .navigate-right.enabled:hover {
+      border-left-color: $controlsColor; }
+
+    .navigate-up.enabled:hover {
+      border-bottom-color: $controlsColor; }
+
+    .navigate-down.enabled:hover {
+      border-top-color: $controlsColor; }
+  }
+
+
+  /*********************************************
+   * PROGRESS BAR
+   *********************************************/
+
+  .slide-number {
+    right: 47px;
+    bottom: 54px;
+    background:none;
+    color: $controlsColor;
+
+  }
+
+  .progress {
+    background: $backgroundColor;
+    span {
+        background: $controlsColor;
+        -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+        -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+        transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); 
+    }
+  }
+
+
+  /*********************************************
+   * CUSTOM STYLES
+   *********************************************/
+
+  a {
+     color: $mainColor;
+     text-decoration:underline;
+  }
+
+  ul {
+    li {
+      font-size: 2rem;
+    }
+  }
+
+  small, .small {
+    vertical-align: baseline;
+  }
+
+  .red {
+    color:red;
+  }
+
+  .medium {
+    font-size: 1.5rem;
+    & > li {
+      font-size: 1.5rem; 
+    }
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  section {
+    &.has-dark-background {
+      &, h1, h2, h3, h4, h5, h6, a {
+        color: $backgroundColor;
+      }
+    }
+
+    img {
+      margin: 15px 0px;
+      background: transparent;
+      border: 0;
+      box-shadow: 0 0 0 0;
+
+      &.col33 {
+        max-width:30%;
+        margin-right: 3%;
+      }
+    }
+  }
+
+  .columns {
+    display: flex;
+    .col {
+      flex: 1;
+    }
+    .col3 {
+      flex: 0.3;
+      margin-right: 2rem;
+    }
+  }
+
+
+  .reveal .progress span {
+  	background-color: #fff;
+  }
+
+  .maintitle {
+    font-size: 3rem;
+  }
+
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
