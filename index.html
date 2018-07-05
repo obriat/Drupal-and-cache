@@ -589,7 +589,6 @@ $build = [
     'tags' => $config->getCacheTags(), // Same as 'tags' => ['config:system.site']
   ],
 ];
-
 // Another way to add cache depency.
 $renderer = \Drupal::service('renderer');
 $renderer->addCacheableDependency(
@@ -612,7 +611,6 @@ $tags = Cache::mergeTags($conf_one->getCacheTags(),$conf_two->getCacheTags());
 >\Drupal\Core\Cache
 
 public function getCacheContexts() {
-  // CacheableMetadata
   return Cache::mergeContexts(
     parent::getCacheContexts(),
     ['user.node_grants:view']
@@ -660,12 +658,12 @@ $this->getContextValue('node');
           data-background="images/DDD2018/DDD2018_white_bg.png"
         >
           <h2>#lazy_builder (Auto-placeholdering)</h2>
-          <p style="text-align:left">To prevent highly dynamics content to systematically invalid page cache,
-            <u>Dynamic Page Cache</u> replaces them with placeholders before writing cache.<br>
-            Each time the cache is requested their content will be rendered on the fly.</p>
-          <p style="text-align:left">
-            This mechanism is also used by <u>Bigpipe</u> (now enable by default in 8.5)
-          </p>
+          <ul>
+            <li>To prevent highly dynamics content to systematically invalid page cache,
+            <u>Dynamic Page Cache</u> replaces them with placeholders before writing cache.</li>
+            <li>Each time the cache is requested their content will be rendered on the fly.</li>
+            <li>This mechanism is also used by <u>Bigpipe</u> (now enable by default in 8.5)</li>
+          </ul>
           <p>
             <a style="font-size: 1.5rem" href="https://www.drupal.org/docs/8/api/render-api/auto-placeholdering">https://www.drupal.org/docs/8/api/render-api/auto-placeholdering</a><br>
             <a style="font-size: 1.5rem" href=" BigPipe : https://youtu.be/JwzX0Qv6u3A">Bigpipe demo</a>
@@ -695,8 +693,8 @@ return [
     max-age: 0
     contexts: ['session', 'user']
     tags: []</code></pre>
-              you could change them or add your own ones.
             </li>
+            <li>you could change them or add your own ones.</li>
           </ul>
         </section>
         <!-- ################## Render API cache system ################## -->
@@ -801,6 +799,15 @@ return [
     'config:my_module',
   ]
 );</code></pre>
+        </section>
+
+        <!-- ##################  ################## -->
+        <section
+          class="section-slide"
+          data-background-transition="fade"
+          data-transition="fade"
+          data-background="images/DDD2018/DDD2018_white_bg.png"
+        >
           <p>Get tags</p>
 
           <pre><code class="php"
@@ -808,9 +815,14 @@ return [
 $node->getCacheTags();
 \Drupal\views\Entity\View::load('front')->getCacheTags();
 
-// List cache tags associated with this entity type
-// Will detect newly created entities
-$entity_type->getListCacheTags(); //EntityTypeInterface;</code></pre>
+// Get "List" cache tags associated with this entity type
+// Will detects newly created entities
+$em = \Drupal::entityTypeManager();
+//config:taxonomy_vocabulary_list
+$em->getDefinition('taxonomy_vocabulary')->getListCacheTags();
+// taxonomy_term_list
+$em->getDefinition('taxonomy_term')->getListCacheTags();
+</code></pre>
         </section>
 
         <!-- ##################  ################## -->
