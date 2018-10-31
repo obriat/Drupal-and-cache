@@ -953,7 +953,7 @@ $settings['cache']['bins']['render'] = 'cache.backend.null';</code></pre>
             <li class="fragment">Core backends <code class="medium">(core/core.services.yml)</code>:
               <ul class="medium">
                 <li>Memory: not persisted across requests</li>
-                <li><b>Database</b>: Default storage in the (SQL) database <b>(invalidated, never deleted)</b></li>
+                <li><b>Database</b>: Default storage in the (SQL) database <b>(invalidated, never deleted*)</b></li>
                 <li><b>APCu</b>: Shared-Memory inside the PHP process, not shared with drush/CLI/multiple servers</li>
                 <li>Null: for disabling cache (dev)</li>
               </ul>
@@ -968,6 +968,7 @@ $settings['cache']['bins']['render'] = 'cache.backend.null';</code></pre>
           </ul>
           <p class="left fragment medium">ChainedFast Backend (<code>cache.backend.chainedfast</code>) allow to "chained" a fast backend on top a slow but shared one.
           </p>
+          <p class="left fragment medium"><a href="https://www.drupal.org/node/2891281">* : Since 8.4 SQL bins have a max size.</a></p>
   
           <aside class="notes">
             
