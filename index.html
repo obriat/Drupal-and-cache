@@ -473,7 +473,10 @@ services:
           <ul>
             <li>The page content are built with the render API, it's where most of the cache meta-data come from</li>
             <li>They are stored in the <code>#cache</code> key of render arrays:
-              <ul>
+              <ul>   
+                <li><code>keys</code>:
+                  <span style="font-size:0.8em">Name this cache part and marks it as cacheable, e.g.: <code>['node', 5, 'teaser']</code></span>
+                </li>
                 <li><code>max-age</code>*:
                   <ul>
                     <li style="font-size:0.8em">-1: Permanent</li>
